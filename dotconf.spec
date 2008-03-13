@@ -1,7 +1,7 @@
 %define name dotconf
 %define	major 1
 %define version 1.0.13
-%define release %mkrel 1
+%define release %mkrel 2
 %define	libname_orig libdotconf
 %define	libname %mklibname dotconf %{major}
 %define	libnamedevel %mklibname dotconf -d
@@ -15,6 +15,8 @@ License: LGPL
 #v2.1
 Group: System/Libraries
 URL: http://www.azzit.de/dotconf/
+# (fc) 1.0.13-2mdv fix aclocal warning
+Patch0:	dotconf-1.0.13-aclocal-warning.patch
 Source: http://www.azzit.de/dotconf/download/v1.0/%{name}-%{version}.tar.gz
 BuildRequires: recode
 %if %mdkversion < 200800
@@ -72,10 +74,12 @@ documentation.
 
 %prep
 %setup -q
+%patch0 -p1 -b .aclocal-warning
 recode l1..u8 AUTHORS doc/dotconf-features.txt
-%configure
+
 
 %build
+%configure
 %make
 
 %install
