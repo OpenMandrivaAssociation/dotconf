@@ -77,9 +77,11 @@ documentation.
 %patch0 -p1 -b .aclocal-warning
 recode l1..u8 AUTHORS doc/dotconf-features.txt
 
+#fix build
+autoreconf -i
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
