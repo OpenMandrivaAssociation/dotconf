@@ -1,7 +1,7 @@
 %define name dotconf
 %define	major 1
 %define version 1.0.13
-%define release %mkrel 6
+%define release %mkrel 7
 %define	libname_orig libdotconf
 %define	libname %mklibname dotconf %{major}
 %define	libnamedevel %mklibname dotconf -d
