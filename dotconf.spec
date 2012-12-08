@@ -1,7 +1,7 @@
 %define name dotconf
 %define	major 1
 %define version 1.0.13
-%define release %mkrel 7
+%define release %mkrel 8
 %define	libname_orig libdotconf
 %define	libname %mklibname dotconf %{major}
 %define	libnamedevel %mklibname dotconf -d
@@ -116,9 +116,45 @@ rm -rf %{buildroot}
 %files -n %{libnamestaticdevel}
 %defattr(-,root,root)
 %{_libdir}/*.a
-%{_libdir}/*.la
 
 %files -n %{name}-examples
 %defattr(-,root,root)
 %doc examples/*
 
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.13-7mdv2011.0
++ Revision: 663846
+- mass rebuild
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.13-6mdv2011.0
++ Revision: 604812
+- rebuild
+
+* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.13-5mdv2010.1
++ Revision: 522483
+- rebuilt for 2010.1
+
+* Thu Jul 30 2009 Frederic Crozat <fcrozat@mandriva.com> 1.0.13-4mdv2010.0
++ Revision: 404650
+- Fix build
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 1.0.13-4mdv2009.0
++ Revision: 244518
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Thu Mar 13 2008 Frederic Crozat <fcrozat@mandriva.com> 1.0.13-2mdv2008.1
++ Revision: 187511
+- Patch0: fix aclocal warning
+
+* Tue Dec 18 2007 Guillaume Bedot <littletux@mandriva.org> 1.0.13-1mdv2008.1
++ Revision: 132128
+- import dotconf
+
+
+* Tue Dec 18 2007 Guillaume Bedot <littletux@mandriva.org> 1.0.13-1mdv2008.1
+- First package of dotconf for MandrivaLinux.
