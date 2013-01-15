@@ -1,27 +1,19 @@
-%define name dotconf
 %define	major 1
-%define version 1.0.13
-%define release %mkrel 8
 %define	libname_orig libdotconf
 %define	libname %mklibname dotconf %{major}
 %define	libnamedevel %mklibname dotconf -d
 %define	libnamestaticdevel %mklibname dotconf -d -s
 
-Name: %{name}
+Name: dotconf
 Summary: A ConfigurationFile Parser Library
-Version: %{version}
-Release: %{release}
+Version: 1.3
+Release: 1
 License: LGPL
 #v2.1
 Group: System/Libraries
-URL: http://www.azzit.de/dotconf/
-# (fc) 1.0.13-2mdv fix aclocal warning
-Patch0:	dotconf-1.0.13-aclocal-warning.patch
-Source: http://www.azzit.de/dotconf/download/v1.0/%{name}-%{version}.tar.gz
+URL: https://github.com/williamh/dotconf
+Source0: dotconf-%version.tar.xz
 BuildRequires: recode
-%if %mdkversion < 200800
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
-%endif
 
 %description
 Dotconf is a configuration file parser library.
@@ -74,7 +66,6 @@ documentation.
 
 %prep
 %setup -q
-%patch0 -p1 -b .aclocal-warning
 recode l1..u8 AUTHORS doc/dotconf-features.txt
 
 #fix build
@@ -88,28 +79,15 @@ autoreconf -i
 rm -rf %{buildroot}
 %makeinstall
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files -n %{libname}
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS README
 %{_libdir}/*.so.*
 
 %files -n %{libnamedevel}
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog README doc/dotconf*
-%{_bindir}/%{name}-config
+%doc AUTHORS README doc/dotconf*
 %{_includedir}/*.h
-%{_datadir}/aclocal/%{name}.m4
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/%{name}.pc
 
@@ -120,6 +98,7 @@ rm -rf %{buildroot}
 %files -n %{name}-examples
 %defattr(-,root,root)
 %doc examples/*
+%doc %_docdir/%name
 
 
 

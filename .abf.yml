@@ -1,2 +1,4 @@
+removed_sources:
+  dotconf-1.0.13.tar.gz: bf0c3a29da525f0be8b896c484b3b518f022998f
 sources:
-  "dotconf-1.0.13.tar.gz": bf0c3a29da525f0be8b896c484b3b518f022998f
+  dotconf-1.3.tar.xz: 0339fd293982b01ea4fef2449265383ac4450477
