@@ -57,7 +57,7 @@ autoreconf -i
 
 %build
 %configure2_5x \
-	--diable-static
+	--disable-static
 %make
 
 %install
