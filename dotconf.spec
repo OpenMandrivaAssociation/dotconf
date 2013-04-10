@@ -1,4 +1,4 @@
-%define	major	1
+%define	major	0
 %define	libname %mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
 
@@ -19,6 +19,7 @@ Dotconf is a configuration file parser library.
 Summary:	The shared libraries needed for running programs using dotconf
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
+Obsoletes:	%{_lib}dotconf1 < 1.3-2
 
 %description -n	%{libname}
 Dotconf is a configuration file parser library.
@@ -63,7 +64,7 @@ autoreconf -i
 %makeinstall
 
 %files -n %{libname}
-%{_libdir}/*.so.*
+%{_libdir}/libdotconf.so.%{major}*
 
 %files -n %{devname}
 %doc AUTHORS README doc/dotconf*
