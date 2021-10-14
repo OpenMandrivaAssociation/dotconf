@@ -5,7 +5,7 @@
 Summary:	A ConfigurationFile Parser Library
 Name:		dotconf
 Version:	1.3
-Release:	14
+Release:	15
 License:	LGPLv2.1
 Group:		System/Libraries
 Url:		https://github.com/williamh/dotconf
@@ -49,19 +49,20 @@ This package contains examples, installed in the same place as the
 documentation.
 
 %prep
-%setup -q
+%autosetup -p1
 recode l1..u8 AUTHORS doc/dotconf-features.txt
 
 #fix build
 autoreconf -i
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
-%make
+
+%make_build
 
 %install
-%makeinstall
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libdotconf.so.%{major}*
@@ -74,5 +75,4 @@ autoreconf -i
 
 %files -n %{name}-examples
 %doc examples/*
-%doc %_docdir/%name
-
+%doc %{_docdir}/%name
