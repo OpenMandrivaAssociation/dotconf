@@ -5,7 +5,7 @@
 Summary:	A ConfigurationFile Parser Library
 Name:		dotconf
 Version:	1.3
-Release:	15
+Release:	16
 License:	LGPLv2.1
 Group:		System/Libraries
 Url:		https://github.com/williamh/dotconf
