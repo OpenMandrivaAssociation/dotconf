@@ -10,6 +10,11 @@ License:	LGPLv2.1
 Group:		System/Libraries
 Url:		https://github.com/williamh/dotconf
 Source0:	%{name}-%{version}.tar.xz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	recode
 
 %description
